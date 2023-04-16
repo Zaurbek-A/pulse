@@ -49,4 +49,31 @@ $(document).ready(function(){
       $('.overlay, #order').fadeIn('slow');
     })
   });
+
+  function valideForms(form){
+    $(form).validate({
+      rules:{
+        name:"required",
+        phone:"required",
+        email:{
+          required: true,
+          email: true
+        }     
+      },
+      messages: {
+        name: "Пожалуйста, введите свое имя",
+        phone: "Пожалуйста, введите свой номер",
+        email: {
+          required: "Пожалуйста, введите свою посту",
+          email: "Не правильно введен адрест посчты"
+        }
+      }
+    });
+  };
+
+  valideForms('#consultation-form');
+  valideForms('#consultation form');
+  valideForms('#order form');
+
+  $('input[name=phone]').mask("+7 (999) 999-99-99");
 });
